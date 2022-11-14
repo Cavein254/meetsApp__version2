@@ -1,7 +1,10 @@
-import React from "react";
-
+import CreateProfile from "../components/profile/CreateProfile";
 const createProfile = () => {
-  return <div></div>;
+  return (
+    <div>
+      <CreateProfile />
+    </div>
+  );
 };
 
 export default createProfile;
