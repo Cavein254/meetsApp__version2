@@ -4,7 +4,24 @@ import { FiArrowUpRight } from "react-icons/fi";
 import ImageProfile from "../header/ImageProfile";
 function createProfile({ data }) {
   const { name, email } = data;
-  const { profile, setProfile } = useState();
+  const [profile, setProfile] = useState({
+    professional_bio: "",
+    bio: "",
+    experience: "",
+    skill: "",
+    location: "",
+    github: "",
+    twitter: "",
+  });
+  const handleOnUpdate = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    setProfile({
+      ...profile,
+      [name]: [value],
+    });
+    console.log(profile);
+  };
   return (
     <div>
       <div className="bg-scroll bg-my_bg_image h-36 my-clip-path"></div>
@@ -31,9 +48,9 @@ function createProfile({ data }) {
                   </div>
                   <div>
                     <textarea
-                      onChange={(e) =>
-                        setProfile({ professional_bio: e.target.value })
-                      }
+                      value={profile?.professional_bio}
+                      onChange={handleOnUpdate}
+                      name="professional_bio"
                       rows={4}
                       cols={12}
                       className="w-full rounded-md border-none focus:border-blue-300 focus:ring-blue-300 overflow-hidden"
@@ -50,7 +67,9 @@ function createProfile({ data }) {
               <div className="border-b-gray-200 border-2 border-blue-50">
                 <h2 className="text-lg font-bold  ">About Me</h2>
                 <textarea
-                  onChange={(e) => setProfile({ bio: e.target.value })}
+                  name="bio"
+                  value={profile.bio}
+                  onChange={handleOnUpdate}
                   rows={4}
                   className="w-full rounded-md border-none focus:border-blue-300 focus:ring-blue-300"
                   placeholder="Tell us more about yourself"
@@ -59,7 +78,9 @@ function createProfile({ data }) {
               <div className="mt-2 border-2 border-b-gray-200  border-blue-50">
                 <h3 className="text-lg font-bold  ">Experience</h3>
                 <textarea
-                  onChange={(e) => setProfile({ experience: e.target.value })}
+                  name="experience"
+                  value={profile.experience}
+                  onChange={handleOnUpdate}
                   rows={4}
                   className="w-full rounded-md border-none focus:border-blue-300 focus:ring-blue-300"
                   placeholder="List some of your outstanding experience"
@@ -72,7 +93,9 @@ function createProfile({ data }) {
                 <div className="border-2 border-b-gray-200  border-blue-50 pb-4">
                   <h3 className="text-lg font-semibold">Skills</h3>
                   <textarea
-                    onChange={(e) => setProfile({ skill: e.target.value })}
+                    value={profile.skill}
+                    name="skill"
+                    onChange={handleOnUpdate}
                     rows={4}
                     className="w-full rounded-md border-none focus:border-blue-300 focus:ring-blue-300"
                     placeholder="List your skills followed by a comma for example: java, sql, php"
@@ -82,8 +105,11 @@ function createProfile({ data }) {
                   <div className="border-2 border-b-gray-200  border-blue-50">
                     <h3 className="text-lg ">Location</h3>
                     <input
+                      name="location"
                       placeholder="Enter your Location"
                       className="w-full rounded-md"
+                      onChange={handleOnUpdate}
+                      value={profile.location}
                     />
                   </div>
                   <div className="border-2 border-b-gray-200  border-blue-50">
@@ -91,8 +117,11 @@ function createProfile({ data }) {
                     <div className="flex flex-row items-center font-semibold">
                       <div>
                         <input
+                          name="github"
                           placeholder="Enter your Github Url"
                           className="w-full rounded-md"
+                          onChange={handleOnUpdate}
+                          value={profile.github}
                         />
                       </div>
                       <div>
@@ -105,8 +134,11 @@ function createProfile({ data }) {
                     <div className="flex flex-row items-center font-semibold">
                       <div>
                         <input
+                          name="twitter"
                           placeholder="Enter your twitter handle"
                           className="w-full rounded-md"
+                          value={profile.twitter}
+                          onChange={handleOnUpdate}
                         />
                       </div>
                       <div>
@@ -143,8 +175,6 @@ function createProfile({ data }) {
                   </div>
                 </div>
               </div>
-              <div></div>
-              <div></div>
             </div>
           </div>
         </div>
