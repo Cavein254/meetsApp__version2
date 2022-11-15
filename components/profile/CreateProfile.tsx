@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { FiArrowUpRight } from "react-icons/fi";
 
 import ImageProfile from "../header/ImageProfile";
-function createProfile() {
+function createProfile({ data }) {
+  const { name, email } = data;
+  const { profile, setProfile } = useState();
   return (
     <div>
       <div className="bg-scroll bg-my_bg_image h-36 my-clip-path"></div>
@@ -20,10 +23,17 @@ function createProfile() {
                 <div className="text-2xl font-extrabold "></div>
                 <div className="font-light mb-2 md:mb-0 w-full">
                   <div className="mb-2">
-                    <input placeholder="Enter your name" className="w-full" />
+                    <input
+                      placeholder="Enter your name"
+                      className="w-full"
+                      value={name}
+                    />
                   </div>
                   <div>
                     <textarea
+                      onChange={(e) =>
+                        setProfile({ professional_bio: e.target.value })
+                      }
                       rows={4}
                       cols={12}
                       className="w-full rounded-md border-none focus:border-blue-300 focus:ring-blue-300 overflow-hidden"
@@ -40,6 +50,7 @@ function createProfile() {
               <div className="border-b-gray-200 border-2 border-blue-50">
                 <h2 className="text-lg font-bold  ">About Me</h2>
                 <textarea
+                  onChange={(e) => setProfile({ bio: e.target.value })}
                   rows={4}
                   className="w-full rounded-md border-none focus:border-blue-300 focus:ring-blue-300"
                   placeholder="Tell us more about yourself"
@@ -48,6 +59,7 @@ function createProfile() {
               <div className="mt-2 border-2 border-b-gray-200  border-blue-50">
                 <h3 className="text-lg font-bold  ">Experience</h3>
                 <textarea
+                  onChange={(e) => setProfile({ experience: e.target.value })}
                   rows={4}
                   className="w-full rounded-md border-none focus:border-blue-300 focus:ring-blue-300"
                   placeholder="List some of your outstanding experience"
@@ -60,6 +72,7 @@ function createProfile() {
                 <div className="border-2 border-b-gray-200  border-blue-50 pb-4">
                   <h3 className="text-lg font-semibold">Skills</h3>
                   <textarea
+                    onChange={(e) => setProfile({ skill: e.target.value })}
                     rows={4}
                     className="w-full rounded-md border-none focus:border-blue-300 focus:ring-blue-300"
                     placeholder="List your skills followed by a comma for example: java, sql, php"
@@ -94,6 +107,21 @@ function createProfile() {
                         <input
                           placeholder="Enter your twitter handle"
                           className="w-full rounded-md"
+                        />
+                      </div>
+                      <div>
+                        <FiArrowUpRight />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="border-2 border-b-gray-200 border-blue-50">
+                    <h3 className="text-lg">Email</h3>
+                    <div className="flex flex-row items-center font-semibold">
+                      <div>
+                        <input
+                          placeholder="Enter your twitter handle"
+                          className="w-full rounded-md"
+                          value={email}
                         />
                       </div>
                       <div>

@@ -1,18 +1,12 @@
 import { unstable_getServerSession } from "next-auth/next";
-import { useSession } from "next-auth/react";
 import { authOptions } from "./api/auth/[...nextauth]";
 
 import { PrismaClient } from "@prisma/client";
 import CreateProfile from "../components/profile/CreateProfile";
-const userEmail = () => {
-  const { data: session } = useSession();
-  const userEmail = session?.user?.email;
-  return userEmail;
-};
-const createProfile = () => {
+const createProfile = ({ data }) => {
   return (
     <div>
-      <CreateProfile />
+      <CreateProfile data={data} />
     </div>
   );
 };
@@ -40,8 +34,7 @@ export async function getServerSideProps(context) {
       profile: true,
     },
   });
-  console.log(data);
-  return { props: { email } };
+  return { props: { data } };
 }
 
 export default createProfile;
