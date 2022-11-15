@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FiArrowUpRight } from "react-icons/fi";
+import { fetcher } from "../../helpers/fetcher";
 
 import ImageProfile from "../header/ImageProfile";
 function createProfile({ data }) {
@@ -20,7 +21,16 @@ function createProfile({ data }) {
       ...profile,
       [name]: [value],
     });
-    console.log(profile);
+  };
+
+  const handleUpdate = async (e) => {
+    e.preventDefault();
+    const url = "/api/profile";
+    const userData = {
+      profile,
+      data,
+    };
+    const response = await fetcher(userData, url, "POST");
   };
   return (
     <div>
