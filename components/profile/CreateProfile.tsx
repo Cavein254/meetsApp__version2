@@ -73,11 +73,11 @@ function createProfile() {
                     />
                   </div>
                   <div className="border-2 border-b-gray-200  border-blue-50">
-                    <h3 className="text-lg ">Website</h3>
+                    <h3 className="text-lg ">Github</h3>
                     <div className="flex flex-row items-center font-semibold">
                       <div>
                         <input
-                          placeholder="Enter your website"
+                          placeholder="Enter your Github Url"
                           className="w-full rounded-md"
                         />
                       </div>
@@ -87,11 +87,11 @@ function createProfile() {
                     </div>
                   </div>
                   <div className="border-2 border-b-gray-200 border-blue-50">
-                    <h3 className="text-lg">Email</h3>
+                    <h3 className="text-lg">Twitter</h3>
                     <div className="flex flex-row items-center font-semibold">
                       <div>
                         <input
-                          placeholder="Enter your email Address"
+                          placeholder="Enter your twitter handle"
                           className="w-full rounded-md"
                         />
                       </div>

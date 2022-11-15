@@ -50,10 +50,13 @@ model User {
 
 model Profile {
   id String @id @default(cuid())
+  name String?
   slug String @unique
-  profession String?
+  profession_bio String?
   bio String?
+  experience String?
   languages String?
+  location String?
   github_url String?
   twitter_url String?
   facebook_url String?

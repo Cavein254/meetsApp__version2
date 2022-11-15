@@ -85,7 +85,7 @@ function Profile() {
                     <span className="font-semibold">Nikaragwa, Spain</span>
                   </div>
                   <div className="border-2 border-b-gray-200  border-blue-50">
-                    <h3 className="text-lg ">Website</h3>
+                    <h3 className="text-lg ">Github</h3>
                     <div className="flex flex-row items-center font-semibold">
                       <div>
                         <span>www.olddogs.com</span>
@@ -96,7 +96,7 @@ function Profile() {
                     </div>
                   </div>
                   <div className="border-2 border-b-gray-200 border-blue-50">
-                    <h3 className="text-lg">Email</h3>
+                    <h3 className="text-lg">Twitter</h3>
                     <div className="flex flex-row items-center font-semibold">
                       <div>
                         <span>olddogs@gmail.com</span>
